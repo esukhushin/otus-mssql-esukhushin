@@ -32,15 +32,14 @@ USE WideWorldImporters
 
 --напишите здесь свое решение
 select 
-	year(orders.OrderDate) as [year],
-	month(orders.OrderDate) as [month],
-	avg(invLines.ExtendedPrice) as avgPrice,
-	sum(invLines.ExtendedPrice) as TotalValue
+	year(invoices.InvoiceDate) as [year],
+	month(invoices.InvoiceDate) as [month],
+	avg(invLines.Quantity * invLines.UnitPrice) as avgPrice,
+	sum(invLines.Quantity * invLines.UnitPrice) as TotalValue
 from
-	Sales.Orders as orders
-	join Sales.Invoices as invoices on invoices.OrderID = orders.OrderID
+	Sales.Invoices as invoices
 	join Sales.InvoiceLines as invLines on invLines.InvoiceID = invoices.InvoiceID
-group by year(orders.OrderDate), month(orders.OrderDate)
+group by year(invoices.InvoiceDate), month(invoices.InvoiceDate)
 order by [year], [month] 
 
 /*
@@ -56,14 +55,13 @@ order by [year], [month]
 
 --напишите здесь свое решение
 select 
-	year(orders.OrderDate) as [year],
-	month(orders.OrderDate) as [month],
+	year(invoices.InvoiceDate) as [year],
+	month(invoices.InvoiceDate) as [month],
 	sum(invLines.ExtendedPrice) as TotalValue
 from
-	Sales.Orders as orders
-	join Sales.Invoices as invoices on invoices.OrderID = orders.OrderID
+	Sales.Invoices as invoices
 	join Sales.InvoiceLines as invLines on invLines.InvoiceID = invoices.InvoiceID
-group by year(orders.OrderDate), month(orders.OrderDate)
+group by year(invoices.InvoiceDate), month(invoices.InvoiceDate)
 having sum(invLines.ExtendedPrice) > 4600000
 order by [year], [month] 
 
@@ -86,17 +84,16 @@ order by [year], [month]
 
 --напишите здесь свое решение
 select 
-	year(orders.OrderDate) as [Year],
-	month(orders.OrderDate) as [Month],
+	year(invoices.InvoiceDate) as [year],
+	month(invoices.InvoiceDate) as [month],
 	invLines.[Description] as [Description],
 	count(*) as [SumSales],
 	min(invoices.InvoiceDate) as [FirstSale],
 	sum(invLines.Quantity) as [Quantity]
 from
-	Sales.Orders as orders
-	join Sales.Invoices as invoices on invoices.OrderID = orders.OrderID
+	Sales.Invoices as invoices
 	join Sales.InvoiceLines as invLines on invLines.InvoiceID = invoices.InvoiceID
-group by year(orders.OrderDate), month(orders.OrderDate), invLines.[Description]
+group by year(invoices.InvoiceDate), month(invoices.InvoiceDate), invLines.[Description]
 having sum(invLines.Quantity) < 50
 order by [Year], [Month], [Description]
 
@@ -114,14 +111,13 @@ select
 	iif([TotalValue] > 4600000, [TotalValue], 0) as [TotalValue]
 from 
 	(select 
-		year(orders.OrderDate) as [year],
-		month(orders.OrderDate) as [month],
+		year(invoices.InvoiceDate) as [year],
+		month(invoices.InvoiceDate) as [month],
 		sum(invLines.ExtendedPrice) as [TotalValue]
 	from
-		Sales.Orders as orders
-		join Sales.Invoices as invoices on invoices.OrderID = orders.OrderID
+		Sales.Invoices as invoices
 		join Sales.InvoiceLines as invLines on invLines.InvoiceID = invoices.InvoiceID
-	group by year(orders.OrderDate), month(orders.OrderDate)
+	group by year(invoices.InvoiceDate), month(invoices.InvoiceDate)
 	) as Tmp
 order by [year], [month]
 
@@ -135,16 +131,15 @@ select
 	iif([Quantity] < 50, 0, [Quantity]) as [Quantity]
 from 
 	(select 
-		year(orders.OrderDate) as [Year],
-		month(orders.OrderDate) as [Month],
+		year(invoices.InvoiceDate) as [year],
+		month(invoices.InvoiceDate) as [month],
 		invLines.[Description] as [Description],
 		count(*) as [SumSales],
 		min(invoices.InvoiceDate) as [FirstSale],
 		sum(invLines.Quantity) as [Quantity]
 	from
-		Sales.Orders as orders
-		join Sales.Invoices as invoices on invoices.OrderID = orders.OrderID
+		Sales.Invoices as invoices
 		join Sales.InvoiceLines as invLines on invLines.InvoiceID = invoices.InvoiceID
-	group by year(orders.OrderDate), month(orders.OrderDate), invLines.[Description]
+	group by year(invoices.InvoiceDate), month(invoices.InvoiceDate), invLines.[Description]
 	) as Tmp
 order by [Year], [Month], [Description]
