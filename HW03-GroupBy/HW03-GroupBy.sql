@@ -57,13 +57,13 @@ order by [year], [month]
 select 
 	year(invoices.InvoiceDate) as [year],
 	month(invoices.InvoiceDate) as [month],
-	sum(invLines.ExtendedPrice) as TotalValue
+	sum(invLines.Quantity * invLines.UnitPrice) as TotalValue
 from
 	Sales.Invoices as invoices
 	join Sales.InvoiceLines as invLines on invLines.InvoiceID = invoices.InvoiceID
 group by year(invoices.InvoiceDate), month(invoices.InvoiceDate)
-having sum(invLines.ExtendedPrice) > 4600000
-order by [year], [month] 
+having sum(invLines.Quantity * invLines.UnitPrice) > 4600000
+order by [year], [month]
 
 /*
 3. Вывести сумму продаж, дату первой продажи
@@ -113,7 +113,7 @@ from
 	(select 
 		year(invoices.InvoiceDate) as [year],
 		month(invoices.InvoiceDate) as [month],
-		sum(invLines.ExtendedPrice) as [TotalValue]
+		sum(invLines.Quantity * invLines.UnitPrice) as [TotalValue]
 	from
 		Sales.Invoices as invoices
 		join Sales.InvoiceLines as invLines on invLines.InvoiceID = invoices.InvoiceID
