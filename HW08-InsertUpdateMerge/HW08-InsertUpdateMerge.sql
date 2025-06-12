@@ -205,7 +205,7 @@ OUTPUT deleted.*, $action, inserted.*;
 */
 
 --напишите здесь свое решение
-EXEC master..xp_cmdshell 'bcp WideWorldImporters.Sales.CustomersCopy OUT "F:\OTUS_MsSqlServer\TempFiles\CustomersCopy.txt" -T -c -S DESKTOP-PO8V419'
+EXEC master..xp_cmdshell 'bcp WideWorldImporters.Sales.CustomersCopy OUT "F:\OTUS_MsSqlServer\TempFiles\CustomersCopy.csv" -T -c -S DESKTOP-PO8V419'
 
 select 
 	* 
@@ -213,4 +213,8 @@ into Sales.CustomersCopy2
 from Sales.CustomersCopy as c
 where c.CustomerID = -1
 
-exec master..xp_cmdshell 'bcp WideWorldImporters.Sales.CustomersCopy2 IN "F:\OTUS_MsSqlServer\TempFiles\CustomersCopy.txt" -T -c -S DESKTOP-PO8V419'
+exec master..xp_cmdshell 'bcp WideWorldImporters.Sales.CustomersCopy2 IN "F:\OTUS_MsSqlServer\TempFiles\CustomersCopy.csv" -T -c -S DESKTOP-PO8V419'
+
+truncate table Sales.CustomersCopy2
+
+BULK INSERT Sales.CustomersCopy2 FROM 'F:\OTUS_MsSqlServer\TempFiles\CustomersCopy.csv';
