@@ -41,29 +41,35 @@ InvoiceMonth | Peeples Valley, AZ | Medicine Lodge, KS | Gasport, NY | Sylvanite
 
 --напишите здесь свое решение
 select 
-	*	
+	FORMAT([InvoiceMonthSub], 'dd.MM.yyyy') as [InvoiceMonth],
+	pivotTable.[Peeples Valley, AZ],
+	pivotTable.[Medicine Lodge, KS],
+	pivotTable.[Gasport, NY],
+	pivotTable.[Sylvanite, MT],
+	pivotTable.[Jessie, ND]
 from
 (
-	select 
-		distinct DATEFROMPARTS(year(invoces.InvoiceDate), month(invoces.InvoiceDate), 1) as [InvoiceMonth],
+	select distinct
+		DATEFROMPARTS(year(invoces.InvoiceDate), month(invoces.InvoiceDate), 1) as [InvoiceMonthSub],
 		CustomerNames.*
 	from  
 		Sales.Invoices as invoces
 		cross apply
 		(
 			select
-				substring(customers.CustomerName, 
-				charindex('(', customers.CustomerName) + 1, 
-				charindex(')', customers.CustomerName) - charindex('(', customers.CustomerName) - 1) as [CustomerName],
-				sum(invLines.Quantity) as [Sum] 
-			from 
-				Sales.Invoices as invocesInner
-				join Sales.Customers as customers on customers.CustomerID = invocesInner.CustomerID
-				join Sales.InvoiceLines as invLines on invLines.InvoiceID = invocesInner.InvoiceID
+				substring(customersInner.CustomerName, 
+				charindex('(', customersInner.CustomerName) + 1, 
+				charindex(')', customersInner.CustomerName) - charindex('(', customersInner.CustomerName) - 1) as [CustomerName],
+				count(*) as [Sum] 
+			from
+				Sales.Customers as customersInner
+				join Sales.Invoices as invocesInner on invocesInner.CustomerID = customersInner.CustomerID
 			where
-				invocesInner.InvoiceID = invoces.InvoiceID
+				invocesInner.CustomerID = invoces.CustomerID
+				and year(invocesInner.InvoiceDate) = year(invoces.InvoiceDate)
+				and month(invocesInner.InvoiceDate) = month(invoces.InvoiceDate)
 			group by
-				customers.CustomerName
+				customersInner.CustomerName
 		) CustomerNames ([CustomerName], [Sum])
 	where
 		invoces.CustomerID between 2 and 6
@@ -81,7 +87,7 @@ pivot
 	)
 )
 as pivotTable
-
+order by [InvoiceMonthSub]
 
 
 /*
