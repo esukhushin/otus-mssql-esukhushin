@@ -128,6 +128,9 @@ from
 			where
 				customers.CustomerID = customersInner.CustomerID
 		) CustomerNames (DeliveryAddressLine1, DeliveryAddressLine2, PostalAddressLine1, PostalAddressLine2)
+	where 
+		customers.CustomerName like '%Tailspin Toys%'
+		
 ) as SourceTable
 unpivot
 (
