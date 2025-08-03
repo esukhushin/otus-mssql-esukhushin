@@ -2,16 +2,16 @@ exec sp_configure 'show advanced options', 1;
 GO
 reconfigure;
 
--- Проверить, включена ли CLR
+-- РџСЂРѕРІРµСЂРёС‚СЊ, РІРєР»СЋС‡РµРЅР° Р»Рё CLR
 SELECT name, value_in_use  
 FROM sys.configurations  
 WHERE name = 'clr enabled';
 
--- Включить CLR (если выключен)
+-- Р’РєР»СЋС‡РёС‚СЊ CLR (РµСЃР»Рё РІС‹РєР»СЋС‡РµРЅ)
 EXEC sp_configure 'clr enabled', 1;
 RECONFIGURE;
 
---Проверить уровень безопасности
+--РџСЂРѕРІРµСЂРёС‚СЊ СѓСЂРѕРІРµРЅСЊ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё
 SELECT name, value_in_use  
 FROM sys.configurations  
 WHERE name = 'clr strict security';
@@ -20,7 +20,7 @@ exec sp_configure 'clr strict security', 0 ;
 RECONFIGURE;
 
 
--- Для возможности создания сборок с EXTERNAL_ACCESS или UNSAFE
+-- Р”Р»СЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЃРѕР·РґР°РЅРёСЏ СЃР±РѕСЂРѕРє СЃ EXTERNAL_ACCESS РёР»Рё UNSAFE
 ALTER DATABASE WideWorldImporters SET TRUSTWORTHY ON; 
 
 GO
@@ -59,20 +59,20 @@ DECLARE	@return_value int,
 EXEC	@return_value = [dbo].[Validation] @inputData = N'<?xml version="1.0" encoding="utf-8"?>
                 <Root>
                     <User>
-                        <Surname>Иванов</Surname>
-                        <Name>Иван</Name>
-                        <Patronymic>Иванович</Patronymic>
+                        <Surname>РРІР°РЅРѕРІ</Surname>
+                        <Name>РРІР°РЅ</Name>
+                        <Patronymic>РРІР°РЅРѕРІРёС‡</Patronymic>
                         <Birthday>1900-01-01</Birthday>
                         <Phone>+79847584562</Phone>
-                        <Address>ул. Первая 120</Address>
+                        <Address>СѓР». РџРµСЂРІР°СЏ 120</Address>
                     </User>
                     <User>
-                        <Surname>Иванов 2</Surname>
-                        <Name>Иван 2</Name>
-                        <Patronymic>Иванович 2</Patronymic>
+                        <Surname>РРІР°РЅРѕРІ 2</Surname>
+                        <Name>РРІР°РЅ 2</Name>
+                        <Patronymic>РРІР°РЅРѕРІРёС‡ 2</Patronymic>
                         <Birthday>1901-01-01</Birthday>
                         <Phone>+79847584563</Phone>
-                        <Address>ул. Первая 125</Address>
+                        <Address>СѓР». РџРµСЂРІР°СЏ 125</Address>
                     </User>
                 </Root>',
 		@value = @value OUTPUT
@@ -86,21 +86,21 @@ DECLARE	@return_value int,
 EXEC	@return_value = [dbo].[Validation] @inputData = N'<?xml version="1.0" encoding="utf-8"?>
                 <Root>
                     <User>
-                        <Surname>Иванов</Surname>
-                        <Name>Иван</Name>
-                        <Patronymic>Иванович</Patronymic>
+                        <Surname>РРІР°РЅРѕРІ</Surname>
+                        <Name>РРІР°РЅ</Name>
+                        <Patronymic>РРІР°РЅРѕРІРёС‡</Patronymic>
                         <Birthday>1900-01-01</Birthday>
                         <Phone>+79847584562</Phone>
-                        <Address>ул. Первая 120</Address>
-						<Address2>ул. Первая 120</Address2>
+                        <Address>СѓР». РџРµСЂРІР°СЏ 120</Address>
+						<Address2>СѓР». РџРµСЂРІР°СЏ 120</Address2>
                     </User>
                     <User>
-                        <Surname>Иванов 2</Surname>
-                        <Name>Иван 2</Name>
-                        <Patronymic>Иванович 2</Patronymic>
+                        <Surname>РРІР°РЅРѕРІ 2</Surname>
+                        <Name>РРІР°РЅ 2</Name>
+                        <Patronymic>РРІР°РЅРѕРІРёС‡ 2</Patronymic>
                         <Birthday>1901-01-01</Birthday>
                         <Phone>+79847584563</Phone>
-                        <Address>ул. Первая 125</Address>
+                        <Address>СѓР». РџРµСЂРІР°СЏ 125</Address>
                     </User>
                 </Root>',
 		@value = @value OUTPUT
