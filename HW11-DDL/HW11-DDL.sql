@@ -21,9 +21,10 @@ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
 GO
 CREATE TABLE [InsuranceDB].[dbo].[Discounts](
 	[DiscountID] uniqueidentifier NOT NULL,
-	[Sum] money NOT NULL,
+	[Sum] decimal(17,2) NOT NULL,
 	[Ñause] nvarchar(250) NULL,
 	[CreatedOn] datetime NOT NULL,
+	[ModifiedOn] datetime NOT NULL,
  CONSTRAINT [PK_Discounts] PRIMARY KEY CLUSTERED 
 (
 	[DiscountID] ASC
@@ -36,8 +37,10 @@ ALTER TABLE [InsuranceDB].[dbo].[Discounts] ADD  CONSTRAINT [DF_Discounts_Discou
 GO
 CREATE TABLE [InsuranceDB].[dbo].[Payments](
 	[PaymentID] uniqueidentifier NOT NULL,
-	[Sum] money NOT NULL,
+	[Sum] decimal(17,2) NOT NULL,
+	[PaymentDate] datetime NOT NULL,
 	[CreatedOn] datetime NOT NULL,
+	[ModifiedOn] datetime NOT NULL,
  CONSTRAINT [PK_Payments] PRIMARY KEY CLUSTERED 
 (
 	[PaymentID] ASC
@@ -51,8 +54,9 @@ GO
 CREATE TABLE [InsuranceDB].[dbo].[ContractsTemplate](
 	[ContractTemplateID] uniqueidentifier NOT NULL,
 	[Name] nvarchar(250) NOT NULL,
-	[DefaultPrice] money NOT NULL,
+	[DefaultPrice] decimal(17,2) NOT NULL,
 	[CreatedOn] datetime NOT NULL,
+	[ModifiedOn] datetime NOT NULL,
  CONSTRAINT [PK_ContractsTemplate] PRIMARY KEY CLUSTERED 
 (
 	[ContractTemplateID] ASC
@@ -68,6 +72,7 @@ CREATE TABLE [InsuranceDB].[dbo].[Companies](
 	[ShortName] nvarchar(50) NOT NULL,
 	[LongName] nvarchar(200) NOT NULL,
 	[CreatedOn] datetime NOT NULL,
+	[ModifiedOn] datetime NOT NULL,
  CONSTRAINT [PK_Companies] PRIMARY KEY CLUSTERED 
 (
 	[CompanyID] ASC
@@ -82,6 +87,7 @@ CREATE TABLE [InsuranceDB].[dbo].[PersonsStatus](
 	[PersonStatusID] uniqueidentifier NOT NULL,
 	[PersonStatusName] nvarchar(50) NOT NULL,
 	[CreatedOn] datetime NOT NULL,
+	[ModifiedOn] datetime NOT NULL,
  CONSTRAINT [PK_PersonsStatus] PRIMARY KEY CLUSTERED 
 (
 	[PersonStatusID] ASC
@@ -102,6 +108,7 @@ CREATE TABLE [InsuranceDB].[dbo].[Persons](
 	[PassportSeries] nvarchar(10) NOT NULL,
 	[PassportNumber] nvarchar(10) NOT NULL,
 	[CreatedOn] datetime NOT NULL,
+	[ModifiedOn] datetime NOT NULL,
  CONSTRAINT [PK_Persons] PRIMARY KEY CLUSTERED 
 (
 	[PersonID] ASC
@@ -155,6 +162,7 @@ CREATE TABLE [InsuranceDB].[dbo].[Contracts](
 	[ContractEnd] datetime NOT NULL,
 	[Price] money NOT NULL,
 	[CreatedOn] datetime NOT NULL,
+	[ModifiedOn] datetime NOT NULL,
  CONSTRAINT [PK_Contracts] PRIMARY KEY CLUSTERED 
 (
 	[ContractID] ASC
