@@ -1,0 +1,198 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="16391238-f500-4de5-bd89-7fbfb10c9c75" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Insurance DW</ID>
+  <Name>Insurance DW</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Insurance DW</DataSourceID>
+  <Schema>
+    <xs:schema id="Insurance_x0020_DW" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Insurance_x0020_DW" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="9fea0a7b-61d1-43c5-ad50-2c9ab8c3ea5f">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Contracts" msprop:DbTableName="Contracts" msprop:FriendlyName="Contracts" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="bfbd4a32-ae5c-4ed8-80d2-66d4c238c35b">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ContractId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="ContractId" msprop:DbColumnName="ContractId" msprop:design-time-name="4ffc7392-f91f-4d3d-85d4-c046b447d8e6" type="xs:string" />
+                  <xs:element name="DateId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="DateId" msprop:DbColumnName="DateId" msprop:design-time-name="d1c9d8f0-060c-4104-ad92-61d91c8d4ab0" type="xs:string" />
+                  <xs:element name="ContractTemplateID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="ContractTemplateID" msprop:DbColumnName="ContractTemplateID" msprop:design-time-name="222978d6-c9b5-49e1-bb9a-e8082d1760fd" type="xs:string" />
+                  <xs:element name="CompanyID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="CompanyID" msprop:DbColumnName="CompanyID" msprop:design-time-name="9cf8d0af-415b-4ef6-abe2-762e4baa9a09" type="xs:string" />
+                  <xs:element name="ManagerID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="ManagerID" msprop:DbColumnName="ManagerID" msprop:design-time-name="7cd9114d-681e-4a83-9ae0-900ad7061a71" type="xs:string" />
+                  <xs:element name="ClientID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="ClientID" msprop:DbColumnName="ClientID" msprop:design-time-name="5978b65c-1f10-44af-affa-3bc4716c1c6f" type="xs:string" />
+                  <xs:element name="ContractBegin" msprop:FriendlyName="ContractBegin" msprop:DbColumnName="ContractBegin" msprop:design-time-name="49bd43bd-2545-41a4-99ed-ae5d64e91447" type="xs:dateTime" />
+                  <xs:element name="ContractEnd" msprop:FriendlyName="ContractEnd" msprop:DbColumnName="ContractEnd" msprop:design-time-name="771b3960-19b2-4f66-b600-f83defb7d7a9" type="xs:dateTime" />
+                  <xs:element name="Price" msprop:FriendlyName="Price" msprop:DbColumnName="Price" msprop:design-time-name="465ab1c4-400b-4146-9eaa-fcb18c15b44e" type="xs:decimal" />
+                  <xs:element name="CreatedOn" msprop:FriendlyName="CreatedOn" msprop:DbColumnName="CreatedOn" msprop:design-time-name="9bc3cdc2-8e8a-4c0b-b0ac-f7a2e437f9c4" type="xs:dateTime" />
+                  <xs:element name="ModifiedOn" msprop:FriendlyName="ModifiedOn" msprop:DbColumnName="ModifiedOn" msprop:design-time-name="8c147684-2eb9-423c-ae87-3ce15afe1ecf" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimDate" msprop:DbTableName="DimDate" msprop:FriendlyName="DimDate" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="affbcd1c-179f-4b8f-9fb4-1abf90557e29">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="DateId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="DateId" msprop:DbColumnName="DateId" msprop:design-time-name="c75feffd-1b5d-4049-af9f-ec5aa2987cbf" type="xs:string" />
+                  <xs:element name="FullDate" msprop:FriendlyName="FullDate" msprop:DbColumnName="FullDate" msprop:design-time-name="fbd10eaf-5102-4782-bf65-5f0d48e7f5b3" type="xs:dateTime" />
+                  <xs:element name="Year" msprop:FriendlyName="Year" msprop:DbColumnName="Year" msprop:design-time-name="e07c8009-6031-45d6-b5f6-b2ea22362bbf" type="xs:int" />
+                  <xs:element name="Month" msprop:FriendlyName="Month" msprop:DbColumnName="Month" msprop:design-time-name="d3bf6755-f943-4697-985a-a3e1214be720" type="xs:int" />
+                  <xs:element name="Day" msprop:FriendlyName="Day" msprop:DbColumnName="Day" msprop:design-time-name="95bca9a1-8d91-492d-872f-97e5b5583d33" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Discounts" msprop:DbTableName="Discounts" msprop:FriendlyName="Discounts" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="4e2be04f-6be6-4e14-bbf9-1e23baebc887">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="DiscountID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="DiscountID" msprop:DbColumnName="DiscountID" msprop:design-time-name="bba97681-42e1-4a90-aa10-75fe72ec90f5" type="xs:string" />
+                  <xs:element name="ContractID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="ContractID" msprop:DbColumnName="ContractID" msprop:design-time-name="27f73528-0c9f-43f8-830f-07f9258e6750" type="xs:string" />
+                  <xs:element name="Sum" msprop:FriendlyName="Sum" msprop:DbColumnName="Sum" msprop:design-time-name="6f3eb829-18f2-4489-bdf1-a5481848c2e3" type="xs:decimal" />
+                  <xs:element name="Сause" msprop:FriendlyName="Сause" msprop:DbColumnName="Сause" msprop:design-time-name="c04c209a-dc8d-4a18-8c58-a8c4f7ba11c1">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CreatedOn" msprop:FriendlyName="CreatedOn" msprop:DbColumnName="CreatedOn" msprop:design-time-name="27a5f5b8-286e-4e78-94a9-141d4bc7c732" type="xs:dateTime" />
+                  <xs:element name="ModifiedOn" msprop:FriendlyName="ModifiedOn" msprop:DbColumnName="ModifiedOn" msprop:design-time-name="e82d5764-718e-42c9-bc1f-9549a9e852e8" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Payments" msprop:DbTableName="Payments" msprop:FriendlyName="Payments" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="e6dfcbc0-382a-437a-ad01-23f1c2ce3585">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PaymentID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="PaymentID" msprop:DbColumnName="PaymentID" msprop:design-time-name="3263fc25-3131-47df-81ad-03e863d28e80" type="xs:string" />
+                  <xs:element name="ContractID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="ContractID" msprop:DbColumnName="ContractID" msprop:design-time-name="2c194632-b547-4651-8a6f-b99d55d91099" type="xs:string" />
+                  <xs:element name="Sum" msprop:FriendlyName="Sum" msprop:DbColumnName="Sum" msprop:design-time-name="3eb27170-cc4d-4355-9cce-173c899a79ab" type="xs:decimal" />
+                  <xs:element name="PaymentDate" msprop:FriendlyName="PaymentDate" msprop:DbColumnName="PaymentDate" msprop:design-time-name="dd2f1298-343d-44ee-a624-573a3bbebb4d" type="xs:dateTime" />
+                  <xs:element name="CreatedOn" msprop:FriendlyName="CreatedOn" msprop:DbColumnName="CreatedOn" msprop:design-time-name="1c7d1db4-bedd-4442-8619-837772138837" type="xs:dateTime" />
+                  <xs:element name="ModifiedOn" msprop:FriendlyName="ModifiedOn" msprop:DbColumnName="ModifiedOn" msprop:design-time-name="37848790-ffc9-4432-8514-892decba979b" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Persons" msprop:DbTableName="Persons" msprop:FriendlyName="Persons" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="061f6386-3fd0-446c-bded-28be7efd33f9">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PersonID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="PersonID" msprop:DbColumnName="PersonID" msprop:design-time-name="e865c1dd-84a4-4cc6-a202-af3ca5393d0e" type="xs:string" />
+                  <xs:element name="PersonStatusID" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:FriendlyName="PersonStatusID" msprop:DbColumnName="PersonStatusID" msprop:design-time-name="c22c3a5a-9080-4954-a276-9c175806d1c9" type="xs:string" />
+                  <xs:element name="Surname" msprop:FriendlyName="Surname" msprop:DbColumnName="Surname" msprop:design-time-name="e41b9d09-2ab9-4fdf-b99e-e67f10e39855">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Name" msprop:FriendlyName="Name" msprop:DbColumnName="Name" msprop:design-time-name="09b16292-93d5-4bf6-8187-8e697423d5af">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Patronymic" msprop:FriendlyName="Patronymic" msprop:DbColumnName="Patronymic" msprop:design-time-name="912dd372-6357-402c-a39c-0ef2642cc86c" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Birthday" msprop:FriendlyName="Birthday" msprop:DbColumnName="Birthday" msprop:design-time-name="30858fbe-141c-4c00-9e62-1685e6a614ab" type="xs:dateTime" />
+                  <xs:element name="PassportSeries" msprop:FriendlyName="PassportSeries" msprop:DbColumnName="PassportSeries" msprop:design-time-name="44e93571-0995-4d6c-a2b1-56ed854e0717">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="PassportNumber" msprop:FriendlyName="PassportNumber" msprop:DbColumnName="PassportNumber" msprop:design-time-name="132094a9-187e-41a6-9eee-153179f43d99">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CreatedOn" msprop:FriendlyName="CreatedOn" msprop:DbColumnName="CreatedOn" msprop:design-time-name="137f7f1c-4808-4817-a9c0-c1583c2578f3" type="xs:dateTime" />
+                  <xs:element name="ModifiedOn" msprop:FriendlyName="ModifiedOn" msprop:DbColumnName="ModifiedOn" msprop:design-time-name="7e66f047-ab3a-46bb-a24d-e780569e9531" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Contracts" />
+          <xs:field xpath="ContractId" />
+        </xs:unique>
+        <xs:unique name="dbo_DimDate_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimDate" />
+          <xs:field xpath="DateId" />
+        </xs:unique>
+        <xs:unique name="dbo_Discounts_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Discounts" />
+          <xs:field xpath="DiscountID" />
+        </xs:unique>
+        <xs:unique name="dbo_Payments_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Payments" />
+          <xs:field xpath="PaymentID" />
+        </xs:unique>
+        <xs:unique name="dbo_Persons_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Persons" />
+          <xs:field xpath="PersonID" />
+        </xs:unique>
+        <xs:keyref name="FK_Payments_Contracts" refer="Constraint1">
+          <xs:selector xpath=".//dbo_Payments" />
+          <xs:field xpath="ContractID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Discounts_Contracts" refer="Constraint1">
+          <xs:selector xpath=".//dbo_Discounts" />
+          <xs:field xpath="ContractID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Contracts_DimDate" refer="dbo_DimDate_Constraint1">
+          <xs:selector xpath=".//dbo_Contracts" />
+          <xs:field xpath="DateId" />
+        </xs:keyref>
+        <xs:keyref name="FK_Contracts_Persons1" refer="dbo_Persons_Constraint1">
+          <xs:selector xpath=".//dbo_Contracts" />
+          <xs:field xpath="ClientID" />
+        </xs:keyref>
+        <xs:keyref name="FK_Contracts_Persons" refer="dbo_Persons_Constraint1">
+          <xs:selector xpath=".//dbo_Contracts" />
+          <xs:field xpath="ManagerID" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Insurance_x0020_DW xmlns="" />
+  </Schema>
+</DataSourceView>

@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "InsuranceDW", "InsuranceDW\InsuranceDW.dwproj", "{6965C2E5-FCB6-4CFF-A02F-47D7E618EEAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6965C2E5-FCB6-4CFF-A02F-47D7E618EEAC}.Development|Default.ActiveCfg = Development
+		{6965C2E5-FCB6-4CFF-A02F-47D7E618EEAC}.Development|Default.Build.0 = Development
+		{6965C2E5-FCB6-4CFF-A02F-47D7E618EEAC}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD7CFDD5-1DBB-4FBE-AC5F-2D3C39A403EA}
+	EndGlobalSection
+EndGlobal
